@@ -1,62 +1,75 @@
-# Jan Beyati - Portfolio
+# Resume Portfolio - Next.js
 
-A modern, responsive portfolio website showcasing my work and experience.
+A modern, dark-themed resume portfolio website built with Next.js, React, and TypeScript.
 
-## Local Development
+## Features
 
-### Quick Start
+- Dark theme with elegant gray backgrounds and gold/yellow accents
+- Responsive design that works on all devices
+- Clean, modern UI matching the portfolio design
+- Sections:
+  - About Me
+  - What I'm Doing (Services)
+  - Skills
 
-**Option 1: Double-click `index.html`**
-- Simply open `index.html` in your browser (works for basic testing)
+## Getting Started
 
-**Option 2: Use the batch script**
-- Double-click `start-server.bat` to start a local server
-- Your portfolio will open automatically at `http://localhost:8080`
+### Prerequisites
 
-**Option 3: VS Code Live Server**
-- Install the "Live Server" extension in VS Code/Cursor
-- Right-click `index.html` → "Open with Live Server"
+- Node.js 18+ installed
+- npm or yarn package manager
 
-**Option 4: Manual Node.js server**
+### Installation
+
+1. Install dependencies:
 ```bash
-npx http-server -p 8080 -o
+npm install
 ```
+
+2. Run the development server:
+```bash
+npm run dev
+```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## Project Structure
 
 ```
-janbeyatii.github.io/
-├── index.html          # Main HTML file
-├── css/
-│   └── styles.css     # All styling
-├── js/
-│   └── scripts.js     # JavaScript functionality
-├── assets/
-│   ├── dp.jpeg        # Profile picture
-│   └── Resume.pdf     # Resume file
-└── start-server.bat    # Quick start script
+resume/
+├── app/
+│   ├── components/
+│   │   ├── Sidebar.tsx          # Left sidebar with profile and contact info
+│   │   ├── Navigation.tsx       # Top navigation bar
+│   │   ├── AboutSection.tsx     # About me section
+│   │   ├── ServicesSection.tsx  # What I'm doing section
+│   │   └── SkillsSection.tsx    # Skills section
+│   ├── globals.css              # Global styles
+│   ├── layout.tsx               # Root layout
+│   └── page.tsx                 # Main page
+├── package.json
+└── tsconfig.json
 ```
 
-## Features
+## Customization
 
-- 🎨 Modern, responsive design
-- ✨ Smooth animations and transitions
-- 🌙 Dark theme optimized
-- 📱 Mobile-friendly layout
-- 🚀 Fast loading with optimized assets
+You can easily customize:
+- Profile information in `app/components/Sidebar.tsx`
+- About content in `app/components/AboutSection.tsx`
+- Services in `app/components/ServicesSection.tsx`
+- Skills in `app/components/SkillsSection.tsx`
+- Colors and styling in the respective CSS module files
 
-## Color Scheme
+## Build for Production
 
-- **Lime Green** (#a8ff00) - Primary accent
-- **Orange** (#ff8c00) - Action buttons
-- **Blue** (#007AFF) - Secondary buttons
-- **Dark Slate** - Backgrounds
+```bash
+npm run build
+npm start
+```
 
-## Technologies Used
+## Tech Stack
 
-- HTML5
-- CSS3 (with animations)
-- JavaScript (Vanilla)
-- Tailwind CSS (CDN)
-- Lucide Icons
-
+- **Next.js 14** - React framework
+- **TypeScript** - Type safety
+- **CSS Modules** - Scoped styling
+- **React 18** - UI library

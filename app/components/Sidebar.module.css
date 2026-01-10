@@ -1,0 +1,152 @@
+.sidebar {
+  width: 320px;
+  background-color: #181818;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.profilePictureWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.profilePicture {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 3px solid #2a2a2a;
+}
+
+.statusIndicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  background-color: #4ade80;
+  border: 3px solid #181818;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.titleBadge {
+  background-color: rgba(42, 42, 42, 0.8);
+  color: #ffffff;
+  padding: 0.5rem 1.125rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  color: #d4af37;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contactLabel {
+  font-size: 0.6875rem;
+  color: #888888;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactValue {
+  font-size: 0.8125rem;
+  color: #e5e5e5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.socialSection {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #d4af37;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.socialIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+    padding: 2rem 1.5rem;
+  }
+  
+  .profilePicture {
+    width: 120px;
+    height: 120px;
+  }
+}
