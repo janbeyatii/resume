@@ -81,7 +81,7 @@
 .contactIcon {
   width: 20px;
   height: 20px;
-  color: #d4af37;
+  color: #e0e0e0;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -122,12 +122,12 @@
   justify-content: center;
   border-radius: 8px;
   background-color: #2a2a2a;
-  color: #d4af37;
+  color: #e0e0e0;
   transition: all 0.3s ease;
 }
 
 .socialIcon:hover {
-  background-color: #d4af37;
+  background-color: #e0e0e0;
   color: #1a1a1a;
   transform: translateY(-2px);
 }

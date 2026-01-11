@@ -18,7 +18,7 @@
   left: 0;
   width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, #d4af37, rgba(212, 175, 55, 0.4));
+  background: linear-gradient(90deg, #e0e0e0, rgba(224, 224, 224, 0.4));
   border-radius: 2px;
 }
 
@@ -44,12 +44,12 @@
   align-items: center;
   gap: 0.75rem;
   background-color: rgba(42, 42, 42, 0.6);
-  color: #d4af37;
+  color: #e0e0e0;
   padding: 0.75rem 1.25rem;
   border-radius: 12px;
   font-size: 0.8125rem;
   font-weight: 500;
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(224, 224, 224, 0.15);
   transition: all 0.2s ease;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -57,10 +57,10 @@
 }
 
 .socialLink:hover {
-  background-color: rgba(212, 175, 55, 0.15);
-  border-color: rgba(212, 175, 55, 0.35);
+  background-color: rgba(224, 224, 224, 0.08);
+  border-color: rgba(224, 224, 224, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .socialLink svg {
