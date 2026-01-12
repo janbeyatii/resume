@@ -22,10 +22,10 @@ const projects = [
   },
   {
     title: 'Dancin\' Conga',
-    description: 'Fun little animation dancing to a catchy tune. Deployed via Netlify.',
-    technologies: ['Animation', 'Netlify', 'Frontend'],
+    description: 'Fun little animation dancing to a catchy tune. Interactive web animation project featuring Theo Taco Dance. Deployed via Vercel.',
+    technologies: ['Animation', 'Vercel', 'Frontend', 'Interactive'],
     thumbnail: '/conga.png',
-    url: '#'
+    url: 'https://dancingconga.vercel.app/'
   }
 ]
 
