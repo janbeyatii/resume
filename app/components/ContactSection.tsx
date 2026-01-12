@@ -5,7 +5,7 @@ import styles from './ContactSection.module.css'
 
 const socialLinks = [
   {
-    href: 'https://github.com',
+    href: 'https://github.com/janbeyatii',
     label: 'Github',
     icon: 'github',
     external: true
@@ -17,19 +17,19 @@ const socialLinks = [
     external: false
   },
   {
-    href: 'https://linkedin.com',
+    href: 'https://www.linkedin.com/in/jan-b-970775213/',
     label: 'LinkedIn',
     icon: 'linkedin',
     external: true
   },
   {
-    href: 'https://instagram.com',
+    href: 'https://www.instagram.com/beyattii/',
     label: 'Instagram',
     icon: 'instagram',
     external: true
   },
   {
-    href: 'mailto:',
+    href: 'mailto:janbeyati.9@gmail.com',
     label: 'Contact',
     icon: 'email',
     external: false

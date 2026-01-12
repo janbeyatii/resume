@@ -1,9 +1,10 @@
 'use client'
 
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import styles from './AnimatedBackground.module.css'
 
-export default function AnimatedBackground() {
+function AnimatedBackground() {
   return (
     <div className={styles.backgroundContainer}>
       {/* Animated gradient orbs */}
@@ -52,5 +53,7 @@ export default function AnimatedBackground() {
     </div>
   )
 }
+
+export default memo(AnimatedBackground)
 
 

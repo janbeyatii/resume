@@ -1,9 +1,18 @@
 'use client'
 
+import { memo } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import styles from './ProjectsSection.module.css'
 
 const projects = [
+  {
+    title: 'Titan Auto Care',
+    description: 'Ottawa\'s premier mobile car detailing service website. Premium auto detailing and ceramic coating platform featuring service booking, portfolio showcase, and client testimonials. Fully responsive design with modern UI.',
+    technologies: ['Web Development', 'Mobile Design', 'SEO', 'Booking System'],
+    thumbnail: '/titan.png',
+    url: 'https://titanautocare.ca'
+  },
   {
     title: 'MyTiles Ottawa',
     description: 'Professional portfolio website for a tile & interior renovations company. Fully SEO optimized with modern design, showcasing services, portfolio gallery, and lead generation forms.',
@@ -81,14 +90,20 @@ export default function ProjectsSection() {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <div className={styles.thumbnailContainer}>
-              <motion.img
-                src={project.thumbnail}
-                alt={project.title}
-                className={styles.thumbnail}
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                loading="lazy"
-              />
+                style={{ width: '100%', height: '100%', position: 'relative' }}
+              >
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  className={styles.thumbnail}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
+                />
+              </motion.div>
               <div className={styles.thumbnailOverlay}>
                 <div className={styles.viewButton}>
                   View Site →

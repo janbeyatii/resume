@@ -1,16 +1,11 @@
 'use client'
 
+import { memo } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import styles from './Sidebar.module.css'
 
 export default function Sidebar() {
-  const socialLinks = [
-    { href: 'https://github.com', label: 'GitHub', icon: 'github' },
-    { href: 'https://linkedin.com', label: 'LinkedIn', icon: 'linkedin' },
-    { href: 'https://instagram.com', label: 'Instagram', icon: 'instagram' },
-    { href: '#', label: 'Resume', icon: 'resume' },
-  ]
-
   return (
     <aside className={styles.sidebar}>
       <motion.div
@@ -24,10 +19,14 @@ export default function Sidebar() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <img
+          <Image
             src="/profile.jpg"
             alt="Jan Beyati"
+            width={150}
+            height={150}
             className={styles.profilePicture}
+            priority
+            quality={85}
           />
         </motion.div>
         <motion.h1
@@ -76,7 +75,7 @@ export default function Sidebar() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
+        <a href="https://github.com/janbeyatii" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
@@ -86,7 +85,7 @@ export default function Sidebar() {
             </svg>
           </motion.div>
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/jan-b-970775213/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn">
           <motion.div
             whileHover={{ scale: 1.1, rotate: -5 }}
             whileTap={{ scale: 0.9 }}
@@ -96,7 +95,7 @@ export default function Sidebar() {
             </svg>
           </motion.div>
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
+        <a href="https://www.instagram.com/beyattii/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
