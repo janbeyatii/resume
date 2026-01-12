@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import styles from './Navigation.module.css'
 
 type TabType = 'about' | 'experience' | 'skills' | 'projects' | 'contact'
@@ -20,15 +21,32 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
 
   return (
     <nav className={styles.navigation}>
-      {tabs.map((tab) => (
-        <button
+      {tabs.map((tab, index) => (
+        <motion.button
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
           className={`${styles.navLink} ${activeTab === tab.id ? styles.active : ''}`}
           type="button"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: index * 0.1 }}
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.95 }}
         >
           {tab.label}
-        </button>
+          {activeTab === tab.id && (
+            <motion.span
+              className={styles.activeIndicator}
+              layoutId="activeTab"
+              initial={false}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30
+              }}
+            />
+          )}
+        </motion.button>
       ))}
     </nav>
   )

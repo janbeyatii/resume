@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import styles from './SkillsSection.module.css'
 
 const skillCategories = [
@@ -27,26 +30,89 @@ const skillCategories = [
   }
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const categoryVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      staggerChildren: 0.03,
+    },
+  },
+}
+
+const skillVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.3,
+    },
+  },
+}
+
 export default function SkillsSection() {
   return (
-    <section className={styles.skillsSection}>
-      <h2 className={styles.sectionTitle}>
+    <motion.section
+      className={styles.skillsSection}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.h2 className={styles.sectionTitle}>
         Technologies I work with
-        <span className={styles.titleUnderline}></span>
-      </h2>
-      <h3 className={styles.subtitle}>Experience With</h3>
+        <motion.span
+          className={styles.titleUnderline}
+          initial={{ width: 0 }}
+          animate={{ width: 48 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        />
+      </motion.h2>
+      <motion.h3
+        className={styles.subtitle}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        Experience With
+      </motion.h3>
       <div className={styles.skillsContainer}>
         {skillCategories.map((category, categoryIndex) => (
-          <div key={categoryIndex} className={styles.category}>
+          <motion.div
+            key={categoryIndex}
+            className={styles.category}
+            variants={categoryVariants}
+            whileHover={{ y: -3 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <h4 className={styles.categoryTitle}>{category.title}</h4>
             <div className={styles.skillsGrid}>
               {category.skills.map((skill, skillIndex) => (
-                <div key={skillIndex} className={styles.skillTag}>{skill}</div>
+                <motion.div
+                  key={skillIndex}
+                  className={styles.skillTag}
+                  variants={skillVariants}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  {skill}
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }

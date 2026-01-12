@@ -42,20 +42,74 @@
 .projectCard {
   background-color: rgba(42, 42, 42, 0.6);
   border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.projectCard:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  border-color: rgba(224, 224, 224, 0.15);
+  background-color: rgba(42, 42, 42, 0.8);
+}
+
+.thumbnailContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: rgba(18, 18, 18, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.thumbnailOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .thumbnailOverlay {
+  opacity: 1;
+}
+
+.viewButton {
+  background-color: rgba(224, 224, 224, 0.95);
+  color: #1a1a1a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(10px);
+}
+
+.projectContent {
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-}
-
-.projectCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  border-color: rgba(224, 224, 224, 0.15);
-  background-color: rgba(42, 42, 42, 0.8);
+  flex: 1;
 }
 
 .projectTitle {

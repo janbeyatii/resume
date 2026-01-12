@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import styles from './ExperienceSection.module.css'
 
 const experiences = [
@@ -27,17 +30,62 @@ const experiences = [
   }
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+}
+
 export default function ExperienceSection() {
   return (
-    <section className={styles.experienceSection}>
-      <h2 className={styles.sectionTitle}>
+    <motion.section
+      className={styles.experienceSection}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.h2 className={styles.sectionTitle}>
         My journey
-        <span className={styles.titleUnderline}></span>
-      </h2>
-      <h3 className={styles.subtitle}>Work & Education</h3>
+        <motion.span
+          className={styles.titleUnderline}
+          initial={{ width: 0 }}
+          animate={{ width: 48 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        />
+      </motion.h2>
+      <motion.h3
+        className={styles.subtitle}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        Work & Education
+      </motion.h3>
       <div className={styles.experienceList}>
         {experiences.map((exp, index) => (
-          <div key={index} className={styles.experienceCard}>
+          <motion.div
+            key={index}
+            className={styles.experienceCard}
+            variants={cardVariants}
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <div className={styles.experienceHeader}>
               <div>
                 <h4 className={styles.experienceTitle}>{exp.title}</h4>
@@ -48,12 +96,21 @@ export default function ExperienceSection() {
             <p className={styles.description}>{exp.description}</p>
             <div className={styles.technologies}>
               {exp.technologies.map((tech, techIndex) => (
-                <span key={techIndex} className={styles.techTag}>{tech}</span>
+                <motion.span
+                  key={techIndex}
+                  className={styles.techTag}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 + index * 0.1 + techIndex * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {tech}
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
