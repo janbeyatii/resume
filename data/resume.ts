@@ -39,19 +39,6 @@ export const education = [
 
 export const experience = [
   {
-    role: 'Web Application Design and Build',
-    company: 'JB Interactive Media',
-    location: 'Ottawa, ON',
-    period: 'September 2025 - Present',
-    description: 'Building production-ready web applications with modern frameworks and best practices.',
-    achievements: [
-      'Build production-ready web applications leveraging Next.js 14, TypeScript, and React for optimal performance',
-      'Develop responsive, accessible user interfaces with smooth animations and intuitive navigation',
-      'Architect modular component structures enabling scalable, maintainable codebases for client projects',
-      'Optimize application performance through code splitting, lazy loading, and efficient state management, delivering fast load times and enhanced user experience',
-    ],
-  },
-  {
     role: 'Software Engineering Intern',
     company: 'Barracuda Networks',
     location: 'Ottawa, ON',
@@ -64,6 +51,31 @@ export const experience = [
       'Optimized performance using code splitting and lazy loading, ensuring fast load times and smooth UX',
     ],
   },
+  {
+    role: 'Web Application Design and Build',
+    company: 'JB Interactive Media',
+    location: 'Ottawa, ON',
+    period: 'September 2025 - Present',
+    description: 'Building production-ready web applications with modern frameworks and best practices.',
+    achievements: [
+      'Build production-ready web applications leveraging Next.js 14, TypeScript, and React for optimal performance',
+      'Develop responsive, accessible user interfaces with smooth animations and intuitive navigation',
+      'Architect modular component structures enabling scalable, maintainable codebases for client projects',
+      'Optimize application performance through code splitting, lazy loading, and efficient state management, delivering fast load times and enhanced user experience',
+    ],
+    clientWebsites: [
+      {
+        name: 'MY Tiles Ottawa',
+        url: 'https://mytilesottawa.ca/',
+        thumbnail: '/mytiles.jpeg',
+      },
+      {
+        name: 'Titan Auto Care',
+        url: 'https://titanautocare.ca/',
+        thumbnail: '/logo.jpg',
+      },
+    ],
+  },
 ]
 
 export const projects = [
@@ -71,8 +83,8 @@ export const projects = [
     id: 1,
     title: 'Full-Stack CRM Platform',
     description: 'A comprehensive CRM system enabling sales teams to manage 10,000+ contacts with real-time synchronization and automated email-to-note processing, reducing manual data entry by 60%.',
-    image: '/conga.png', // Fallback for single image
-    images: ['/conga.png', '/mytiles.jpeg', '/titan.png'], // Gallery images - add your project images here
+    image: '/crm/crm1.png', // Fallback for single image
+    images: ['/crm/crm1.png', '/crm/crm2.png', '/crm/crm3.png'], // Gallery images
     tags: ['React 19', 'TypeScript', 'Supabase', 'PostgreSQL', 'OAuth'],
     highlights: [
       'Architected full-stack CRM with real-time data synchronization',
@@ -84,8 +96,8 @@ export const projects = [
     id: 2,
     title: 'Full-Stack Laboratory PPE Detection Using Deep Learning',
     description: 'Real-time video processing system with sub-second inference latency using cascading YOLO models and distributed microservices architecture.',
-    image: '/mytiles.jpeg', // Fallback for single image
-    images: ['/mytiles.jpeg', '/conga.png'], // Gallery images - add your project images here
+    image: '/ppe/ppe1.png', // Fallback for single image
+    images: ['/ppe/ppe1.png', '/ppe/ppe2.png', '/ppe/ppe3.png', '/ppe/ppe4.png'], // Gallery images
     tags: ['FastAPI', 'Python', 'YOLO', 'OpenCV', 'Supabase', 'Microservices'],
     highlights: [
       'Developed real-time video processing with async/await patterns and cascading YOLO models',
@@ -97,8 +109,8 @@ export const projects = [
     id: 3,
     title: 'HomeLab',
     description: 'Orchestrated containerized infrastructure stack with 10+ microservices, automated deployment, and secure reverse proxy configuration.',
-    image: '/titan.png', // Fallback for single image
-    images: ['/titan.png', '/thumbnail.jpg'], // Gallery images - add your project images here
+    image: '/homelab/homelab1.png', // Fallback for single image
+    images: ['/homelab/homelab1.png', '/homelab/homelab2.png', '/homelab/homelab3.png'], // Gallery images
     tags: ['Docker', 'Docker Compose', 'GitHub Actions', 'Nginx', 'Linux'],
     highlights: [
       'Orchestrated 10+ microservices using Docker Compose with automated deployment via GitHub Actions',

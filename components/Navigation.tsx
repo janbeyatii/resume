@@ -71,6 +71,14 @@ export default function Navigation() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-900 group-hover:w-full transition-all duration-300" />
               </motion.button>
             ))}
+            <motion.a
+              href="/RESUME-SOFTWARE2026.pdf"
+              className="px-4 py-2 bg-blue-900 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Resume
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,6 +134,16 @@ export default function Navigation() {
                   {item.label}
                 </motion.button>
               ))}
+              <motion.a
+                href="/RESUME-SOFTWARE2026.pdf"
+                className="block px-6 py-3 bg-blue-900 text-white text-center font-medium rounded-full hover:bg-blue-800 transition-colors mt-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Resume
+              </motion.a>
             </div>
           </motion.div>
         )}

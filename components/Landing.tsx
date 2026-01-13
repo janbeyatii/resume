@@ -63,6 +63,14 @@ export default function Landing() {
               >
                 Get in Touch
               </motion.a>
+              <motion.a
+                href="/RESUME-SOFTWARE2026.pdf"
+                className="px-6 py-3 border-2 border-gray-300 text-gray-700 text-sm font-medium rounded-full hover:bg-gray-100 hover:border-gray-400 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Resume
+              </motion.a>
             </motion.div>
           </motion.div>
 

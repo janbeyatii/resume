@@ -9,9 +9,53 @@ interface ProjectGalleryProps {
   title: string
 }
 
+// Preload next image for smoother transitions
+const preloadImage = (src: string) => {
+  const link = document.createElement('link')
+  link.rel = 'preload'
+  link.as = 'image'
+  link.href = src
+  document.head.appendChild(link)
+}
+
 export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set())
+
+  // Aggressively preload all images immediately
+  useEffect(() => {
+    images.forEach((img, index) => {
+      // Use link preload for better browser optimization
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = img
+      link.fetchPriority = index === 0 ? 'high' : 'low'
+      document.head.appendChild(link)
+      
+      // Force load using Image object
+      const image = new window.Image()
+      image.src = img
+      image.loading = index === 0 ? 'eager' : 'lazy'
+    })
+  }, [images])
+  
+  // Preload next and previous images for smooth transitions
+  useEffect(() => {
+    if (images.length <= 1) return
+    
+    const nextIndex = (currentIndex + 1) % images.length
+    const prevIndex = (currentIndex - 1 + images.length) % images.length
+    
+    // Preload next image
+    const nextImage = new window.Image()
+    nextImage.src = images[nextIndex]
+    
+    // Preload previous image
+    const prevImage = new window.Image()
+    prevImage.src = images[prevIndex]
+  }, [currentIndex, images])
 
   // Auto-scroll functionality
   useEffect(() => {
@@ -52,16 +96,34 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="absolute inset-0"
           >
             <Image
               src={images[currentIndex]}
               alt={`${title} - Image ${currentIndex + 1}`}
               fill
-              className="object-cover"
+              className={`object-cover transition-opacity duration-200 ${
+                imagesLoaded.has(currentIndex) ? 'opacity-100' : 'opacity-0'
+              }`}
               sizes="(max-width: 768px) 100vw, 50vw"
+              priority={currentIndex === 0}
+              loading={currentIndex === 0 ? 'eager' : 'lazy'}
+              quality={80}
+              unoptimized={true}
+              onLoad={() => {
+                setImagesLoaded((prev) => new Set(prev).add(currentIndex))
+              }}
+              onError={() => {
+                // Fallback if image fails to load
+                setImagesLoaded((prev) => new Set(prev).add(currentIndex))
+              }}
             />
+            {!imagesLoaded.has(currentIndex) && (
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center z-10">
+                <div className="w-8 h-8 border-3 border-gray-300 border-t-blue-900 rounded-full animate-spin" />
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>

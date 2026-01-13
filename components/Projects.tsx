@@ -30,7 +30,21 @@ export default function Projects() {
         </motion.h2>
 
         <div className="space-y-24 md:space-y-32">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            // Preload first project's first image
+            if (index === 0 && typeof window !== 'undefined') {
+              const firstImage = project.images?.[0] || project.image
+              const link = document.createElement('link')
+              link.rel = 'preload'
+              link.as = 'image'
+              link.href = firstImage
+              link.fetchPriority = 'high'
+              if (!document.querySelector(`link[href="${firstImage}"]`)) {
+                document.head.appendChild(link)
+              }
+            }
+            
+            return (
             <motion.div
               key={project.id}
               className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${
@@ -44,6 +58,7 @@ export default function Projects() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
+                className="w-full"
               >
                 <ProjectGallery
                   images={project.images || [project.image]}
@@ -83,7 +98,8 @@ export default function Projects() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

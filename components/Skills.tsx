@@ -38,48 +38,67 @@ export default function Skills() {
           </span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
-              className="space-y-6"
+              className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ delay: categoryIndex * 0.1, duration: 0.8 }}
+              transition={{ delay: categoryIndex * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4 }}
             >
-              <h3 className="text-xl md:text-2xl font-medium text-gray-900 flex items-center gap-2">
-                {category.category}
-                <span className="w-1 h-1 bg-blue-900 rounded-full" />
-              </h3>
+              <div className="flex items-center gap-3 mb-6">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                  {category.category}
+                </h3>
+                <div className="flex-1 h-px bg-gradient-to-r from-blue-900/20 to-transparent ml-2" />
+              </div>
               
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.span
+                  <motion.div
                     key={skill}
-                    className={`px-4 py-2 rounded-full text-sm font-medium ${
-                      skillIndex === 0
-                        ? 'bg-blue-900 text-white border border-blue-900'
-                        : 'bg-white border border-gray-200 text-gray-800'
-                    }`}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                    animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 10 }}
                     transition={{
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                      duration: 0.5,
+                      delay: categoryIndex * 0.1 + skillIndex * 0.04,
+                      duration: 0.4,
+                      ease: 'backOut',
                     }}
                     whileHover={{ 
-                      scale: 1.05, 
-                      backgroundColor: skillIndex === 0 ? '#1e3a8a' : '#f9fafb',
-                      borderColor: skillIndex === 0 ? '#1e3a8a' : '#d1d5db'
+                      scale: 1.08,
+                      rotate: skillIndex % 2 === 0 ? 1 : -1,
                     }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {skill}
-                  </motion.span>
+                    <span
+                      className={`inline-block px-3.5 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all cursor-default ${
+                        skillIndex === 0
+                          ? 'bg-blue-900 text-white shadow-sm'
+                          : 'bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 hover:border-gray-300'
+                      }`}
+                    >
+                      {skill}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Decorative element */}
+        <motion.div
+          className="mt-16 md:mt-20 text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          <p className="text-sm text-gray-500 italic">
+            Continuously learning and expanding my toolkit
+          </p>
+        </motion.div>
       </div>
     </section>
   )
