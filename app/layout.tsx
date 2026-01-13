@@ -1,29 +1,27 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import AnimatedBackground from './components/AnimatedBackground'
 
 const inter = Inter({ 
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-inter',
   display: 'swap',
-  preload: true,
-  fallback: ['system-ui', 'arial'],
 })
 
 export const metadata: Metadata = {
-  title: 'Jan Beyati - Software Engineer',
-  description: 'Crafting elegant solutions through code. Portfolio and Resume of Jan Beyati',
-  keywords: ['Software Engineer', 'Portfolio', 'Web Developer', 'Jan Beyati'],
-  authors: [{ name: 'Jan Beyati' }],
+  title: 'Portfolio | Software Engineer & Product Designer',
+  description: 'Software engineer and product designer crafting thoughtful interfaces and robust systems. Where code meets creativity.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  themeColor: '#000000',
   openGraph: {
-    title: 'Jan Beyati - Software Engineer',
-    description: 'Crafting elegant solutions through code. Portfolio and Resume of Jan Beyati',
+    title: 'Portfolio',
+    description: 'Software engineer and product designer',
     type: 'website',
   },
-  robots: {
-    index: true,
-    follow: true,
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Portfolio',
+    description: 'Software engineer and product designer',
   },
 }
 
@@ -33,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <AnimatedBackground />
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased bg-white text-[#0a0a0a]">
         {children}
       </body>
     </html>
   )
 }
+
