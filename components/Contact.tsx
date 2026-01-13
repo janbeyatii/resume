@@ -46,12 +46,12 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white relative inline-block">
-            Let's Connect
+            Let&apos;s Connect
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-white/30 rounded-full" />
           </h2>
           
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            I'm always open to discussing new projects, creative ideas, or opportunities
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities
             to collaborate. Feel free to reach out.
           </p>
 
