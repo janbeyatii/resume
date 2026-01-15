@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import ProjectGallery from './ProjectGallery'
 import { projects } from '@/data/resume'
 
@@ -83,19 +84,28 @@ export default function Projects() {
                   </ul>
                 )}
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tags.map((tag, tagIndex) => (
+                  {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`px-3 py-1 text-sm rounded-full font-medium ${
-                        tagIndex === 0
-                          ? 'bg-blue-900 text-white'
-                          : 'bg-white border border-gray-200 text-gray-700'
-                      }`}
+                      className="px-3 py-1 text-sm rounded-full font-medium bg-white border border-gray-200 text-gray-700"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+                <motion.div
+                  className="pt-4"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
+                >
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-block px-6 py-3 bg-blue-900 text-white text-sm font-medium rounded-full hover:bg-blue-800 transition-colors"
+                  >
+                    View Details
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
             )

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -11,8 +11,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Portfolio | Software Engineer & Product Designer',
   description: 'Software engineer and product designer crafting thoughtful interfaces and robust systems. Where code meets creativity.',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
-  themeColor: '#000000',
   openGraph: {
     title: 'Portfolio',
     description: 'Software engineer and product designer',
@@ -23,6 +21,13 @@ export const metadata: Metadata = {
     title: 'Portfolio',
     description: 'Software engineer and product designer',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#000000',
 }
 
 export default function RootLayout({

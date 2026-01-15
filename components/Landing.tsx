@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 export default function Landing() {
   return (
@@ -13,13 +12,13 @@ export default function Landing() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Text Content - Asymmetric layout */}
+        <div className="max-w-3xl mx-auto">
+          {/* Text Content - Centered layout */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6 md:space-y-8"
+            className="space-y-6 md:space-y-8 text-center"
           >
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-tight"
@@ -42,7 +41,7 @@ export default function Landing() {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -72,25 +71,6 @@ export default function Landing() {
                 Resume
               </motion.a>
             </motion.div>
-          </motion.div>
-
-          {/* Image - Editorial style placement */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative aspect-[4/5] md:aspect-square"
-          >
-            <Image
-              src="/profile.jpg"
-              alt="Profile"
-              fill
-              className="object-cover rounded-lg shadow-lg"
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gray-200 rounded-lg -z-10 hidden md:block" />
           </motion.div>
         </div>
       </div>

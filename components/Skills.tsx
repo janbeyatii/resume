@@ -11,6 +11,7 @@ const skillCategories = [
   { category: 'Backend', skills: skills.backend },
   { category: 'Databases', skills: skills.databases },
   { category: 'DevOps/Cloud', skills: skills.devops },
+  { category: 'AI/ML', skills: skills.ai },
   { category: 'Tools', skills: skills.tools },
   { category: 'Concepts', skills: skills.concepts },
 ]
@@ -73,11 +74,7 @@ export default function Skills() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <span
-                      className={`inline-block px-3.5 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all cursor-default ${
-                        skillIndex === 0
-                          ? 'bg-blue-900 text-white shadow-sm'
-                          : 'bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 hover:border-gray-300'
-                      }`}
+                      className="inline-block px-3.5 py-1.5 rounded-full text-xs md:text-sm font-medium transition-all cursor-default bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 hover:border-gray-300"
                     >
                       {skill}
                     </span>

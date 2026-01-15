@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { experience } from '@/data/resume'
 
@@ -71,17 +72,18 @@ export default function Experience() {
                     </h4>
                     <div className="grid grid-cols-2 gap-4">
                       {exp.clientWebsites.map((client, clientIndex) => (
-                        <motion.a
-                          key={client.url}
-                          href={client.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <motion.div
+                          key={client.slug || client.url}
                           className="group block"
                           initial={{ opacity: 0, y: 10 }}
                           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                           transition={{ delay: index * 0.2 + clientIndex * 0.1, duration: 0.5 }}
                           whileHover={{ y: -4, scale: 1.02 }}
                         >
+                          <Link
+                            href={`/clients/${client.slug || 'client'}`}
+                            className="block"
+                          >
                           <div className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 bg-white shadow-sm group-hover:border-blue-900 group-hover:shadow-xl transition-all duration-300">
                             <Image
                               src={client.thumbnail}
@@ -99,10 +101,10 @@ export default function Experience() {
                               <div className="absolute inset-0 rounded-lg bg-blue-900/10 blur-xl" />
                             </div>
                             
-                            {/* Visit indicator */}
+                            {/* View Details indicator */}
                             <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
                               <div className="flex items-center gap-2 bg-blue-900 text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg">
-                                <span>Visit</span>
+                                <span>View Details</span>
                                 <svg
                                   className="w-3.5 h-3.5"
                                   fill="none"
@@ -113,7 +115,7 @@ export default function Experience() {
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth={2}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    d="M9 5l7 7-7 7"
                                   />
                                 </svg>
                               </div>
@@ -148,7 +150,8 @@ export default function Experience() {
                               </motion.div>
                             </div>
                           </div>
-                        </motion.a>
+                          </Link>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
